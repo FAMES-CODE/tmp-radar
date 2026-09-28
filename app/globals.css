@@ -61,6 +61,8 @@ body {
   align-items: center;
   padding-bottom: 48px;
 }
+.top-actions { display: flex; gap: 16px; align-items: center; }
+.compare-link { color: #b4f11d; text-decoration: none; font-weight: 800; font-size: 13px; }
 .brand {
   color: #f2f7f7;
   display: flex;
@@ -373,6 +375,24 @@ td {
 .information p:last-child {
   margin: 0;
 }
+.analytics-card { background: #101d21; border: 1px solid #223338; margin: 30px 0; }
+.range-tabs { display: flex; border: 1px solid #304248; align-self: center; }
+.range-tabs button, .range-tabs a { padding: 8px 11px; border: 0; background: transparent; color: #91a2a5; font-size: 11px; font-weight: 800; text-decoration: none; cursor: pointer; }
+.range-tabs .active { background: #b4f11d; color: #102018; }
+.chart-wrap { height: 260px; padding: 24px 22px 0; background: repeating-linear-gradient(to bottom, transparent 0, transparent 24.5%, #1b2c31 25%); }
+.chart-wrap svg { width: 100%; height: 100%; overflow: visible; }
+.chart-axis { display: flex; justify-content: space-between; padding: 10px 22px 20px; color: #789094; font-size: 11px; }
+.stat-strip { display: flex; flex-wrap: wrap; gap: 24px; padding: 17px 22px; border-top: 1px solid #223338; color: #91a2a5; font-size: 12px; }
+.stat-strip b { color: #eef7f7; display: block; font-size: 16px; }
+.chart-empty { padding: 58px 22px; text-align: center; color: #b5c3c5; line-height: 1.6; }
+.chart-empty span { color: #789094; font-size: 13px; }
+.server-picker { display: flex; gap: 12px 20px; flex-wrap: wrap; align-items: center; margin: 28px 0 14px; color: #c4d0d2; font-size: 14px; }
+.server-picker label { min-width: 190px; }
+.server-picker input { accent-color: #b4f11d; margin-right: 7px; }
+.server-picker small { color: #789094; }
+.compare-tabs { width: fit-content; margin-left: auto; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; }
+.comparison-table { margin-top: 20px; }
 @media (max-width: 650px) {
   .shell {
     width: min(100% - 28px, 1180px);
@@ -391,6 +411,8 @@ td {
   .topbar {
     padding-bottom: 28px;
   }
+  .top-actions { gap: 9px; }
+  .server-picker label { min-width: 140px; }
   .metric {
     padding: 17px;
   }

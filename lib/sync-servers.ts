@@ -5,6 +5,7 @@ export async function syncServers() {
   const servers = await fetchTruckersMpServers()
   const syncedAt = new Date()
 
+  const recordedAt = new Date(Math.floor(syncedAt.getTime() / 300_000) * 300_000)
   await db.$transaction(
     servers.map((server) =>
       db.server.upsert({
@@ -20,6 +21,7 @@ export async function syncServers() {
           isOnline: server.online,
           information: server.information ?? null,
           lastSyncedAt: syncedAt,
+          snapshots: { createMany: { data: [{ playerCount: server.players, maxPlayers: server.maxplayers, isOnline: server.online, recordedAt }], skipDuplicates: true } },
         },
         update: {
           name: server.name,
@@ -31,6 +33,7 @@ export async function syncServers() {
           isOnline: server.online,
           information: server.information ?? null,
           lastSyncedAt: syncedAt,
+          snapshots: { createMany: { data: [{ playerCount: server.players, maxPlayers: server.maxplayers, isOnline: server.online, recordedAt }], skipDuplicates: true } },
         },
       })
     )

@@ -21,7 +21,20 @@ model Server {
   lastSyncedAt DateTime
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  snapshots   ServerSnapshot[]
 
   @@index([isOnline, playerCount])
   @@index([game])
+}
+
+model ServerSnapshot {
+  id          String   @id @default(cuid())
+  serverId    String
+  playerCount Int
+  maxPlayers  Int
+  isOnline    Boolean
+  recordedAt  DateTime
+  server      Server   @relation(fields: [serverId], references: [id], onDelete: Cascade)
+
+  @@unique([serverId, recordedAt])
 }
