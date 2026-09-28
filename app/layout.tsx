@@ -1,17 +1,6 @@
-import { Geist, Geist_Mono, Oxanium, Roboto } from "next/font/google"
-
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
-
-const robotoHeading = Roboto({subsets:['latin'],variable:'--font-heading'});
-
-const oxanium = Oxanium({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+import { cn } from "@/lib/utils"
 
 export default function RootLayout({
   children,
@@ -20,9 +9,9 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="fr"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", oxanium.variable, robotoHeading.variable)}
+      className={cn("antialiased", "font-sans")}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
