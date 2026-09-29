@@ -48,7 +48,12 @@ export default async function Page() {
           <span className="brand-mark">R</span>
           <span>TMP-RADAR</span>
         </Link>
-        <SyncButton />
+        <div className="top-actions">
+          <Link href="/compare" className="compare-link">
+            Compare
+          </Link>
+          <SyncButton />
+        </div>
       </header>
       <section className="hero">
         <div>

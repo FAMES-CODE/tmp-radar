@@ -2,6 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, CircleAlert, Network, Users } from "lucide-react"
 import { db } from "@/lib/db"
+import { ActivityChart } from "@/components/activity-chart"
 export default async function ServerPage({
   params,
 }: PageProps<"/servers/[externalId]">) {
@@ -33,6 +34,7 @@ export default async function ServerPage({
       <Link href="/" className="back">
         <ArrowLeft size={16} /> Dashboard
       </Link>
+      <Link href="/compare" className="compare-link">Compare servers →</Link>
       <section className="detail-hero">
         <p className="eyebrow">SERVER #{server.externalId}</p>
         <div className="detail-title">
@@ -50,6 +52,7 @@ export default async function ServerPage({
           </span>
         </div>
       </section>
+      <ActivityChart externalId={server.externalId} />
       <section className="detail-grid">
         <article className="detail-card">
           <Users />
