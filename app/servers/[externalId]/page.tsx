@@ -34,7 +34,9 @@ export default async function ServerPage({
       <Link href="/" className="back">
         <ArrowLeft size={16} /> Dashboard
       </Link>
-      <Link href="/compare" className="compare-link">Compare servers →</Link>
+      <Link href="/compare" className="compare-link">
+        Compare servers →
+      </Link>
       <section className="detail-hero">
         <p className="eyebrow">SERVER #{server.externalId}</p>
         <div className="detail-title">

@@ -61,8 +61,8 @@ body {
   align-items: center;
   padding-bottom: 48px;
 }
-.top-actions { display: flex; gap: 16px; align-items: center; }
-.compare-link { color: #b4f11d; text-decoration: none; font-weight: 800; font-size: 13px; }
+.top-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.top-actions a, .compare-link { color: #b4f11d; text-decoration: none; font-weight: 800; font-size: 13px; }
 .brand {
   color: #f2f7f7;
   display: flex;
@@ -375,6 +375,11 @@ td {
 .information p:last-child {
   margin: 0;
 }
+.rich-content p { margin: 0 0 14px; white-space: pre-wrap; }
+.rich-content p:empty { min-height: 10px; }
+.rich-image, .rich-video { display: block; max-width: 100%; height: auto; margin: 12px 0; border: 1px solid #304248; border-radius: 4px; background: #091216; }
+.rich-video { max-height: 520px; }
+.rich-link { color: #b4f11d; overflow-wrap: anywhere; }
 .analytics-card { background: #101d21; border: 1px solid #223338; margin: 30px 0; }
 .range-tabs { display: flex; border: 1px solid #304248; align-self: center; }
 .range-tabs button, .range-tabs a { padding: 8px 11px; border: 0; background: transparent; color: #91a2a5; font-size: 11px; font-weight: 800; text-decoration: none; cursor: pointer; }
@@ -393,6 +398,30 @@ td {
 .compare-tabs { width: fit-content; margin-left: auto; }
 .chart-legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; }
 .comparison-table { margin-top: 20px; }
+.directory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 30px 0; }
+.directory-card { background: #101d21; border: 1px solid #223338; padding: 20px; color: #e8eff0; text-decoration: none; min-height: 190px; transition: border-color .15s, transform .15s; }
+.directory-card:hover { border-color: #b4f11d; transform: translateY(-2px); }
+.directory-card img { display: block; width: 100%; height: 120px; object-fit: cover; margin: -20px -20px 18px; width: calc(100% + 40px); }
+.directory-card .vtc-logo { width: 54px; height: 54px; object-fit: contain; margin: 0 0 16px; }
+.directory-card h2 { margin: 0 0 9px; font-size: 20px; }
+.directory-card p { color: #aababc; line-height: 1.45; }
+.directory-card span { color: #789094; font-size: 12px; }
+.event-banner { width: 100%; max-height: 310px; object-fit: cover; margin-bottom: 24px; border: 1px solid #223338; }
+.vtc-detail-logo, .avatar { width: 88px; height: 88px; object-fit: cover; border-radius: 8px; border: 1px solid #304248; margin-bottom: 16px; background: #101d21; }
+.pagination { display: flex; gap: 8px; justify-content: center; margin: 30px 0; }
+.pagination a { padding: 9px 12px; border: 1px solid #304248; color: #d6e2e3; text-decoration: none; font-size: 13px; }
+.pagination a.active { background: #b4f11d; color: #102018; border-color: #b4f11d; }
+.pagination a[aria-disabled="true"] { pointer-events: none; opacity: .45; }
+.search-panel { max-width: 760px; margin: 32px auto; }
+.search-panel input { width: 100%; box-sizing: border-box; border: 1px solid #40555a; background: #101d21; color: #f2f7f7; padding: 17px 18px; font-size: 16px; border-radius: 4px; }
+.search-panel input:focus { outline: 2px solid #b4f11d; outline-offset: 2px; }
+.search-status { color: #91a2a5; padding: 18px 0; }
+.search-results section { margin: 28px 0; }
+.search-result { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; border-bottom: 1px solid #223338; text-decoration: none; color: #eef7f7; }
+.search-result span { color: #91a2a5; font-size: 13px; }
+.notice.compact { margin: 18px 0; }
+.skeleton { background: linear-gradient(90deg, #101d21, #1b2c31, #101d21); background-size: 200% 100%; animation: shimmer 1.3s infinite; border-radius: 4px; }
+.skeleton.title { width: min(480px, 70%); height: 52px; margin: 50px 0 18px; }.skeleton.lede { width: min(620px, 90%); height: 26px; }.skeleton-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 35px; }.skeleton.card { height: 180px; } @keyframes shimmer { to { background-position: -200% 0; } }
 @media (max-width: 650px) {
   .shell {
     width: min(100% - 28px, 1180px);
@@ -416,6 +445,10 @@ td {
   .metric {
     padding: 17px;
   }
+  .directory-grid, .skeleton-grid { grid-template-columns: 1fr; }
+  .top-actions { gap: 10px; }
+  .search-result { display: block; }
+  .search-result span { display: block; margin-top: 5px; }
   .detail-title .badge {
     display: inline-block;
     margin-top: 16px;
