@@ -126,7 +126,7 @@ Issues and pull requests are welcome.
 
 ## 👤 Author
 
-**Amine Ferkani**, freelance full-stack developer.
+**Amine Ferkani**
 [GitHub](https://github.com/FAMES-CODE) · [LinkedIn](https://linkedin.com/in/amineferkani)
 
 ---
