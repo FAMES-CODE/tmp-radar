@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Activity, CircleAlert, Database, Server, Users } from "lucide-react"
-import { SyncButton } from "@/components/sync-button"
+import { SiteHeader } from "@/components/site-header"
 import { db } from "@/lib/db"
 
 export const dynamic = "force-dynamic"
@@ -43,18 +43,7 @@ export default async function Page() {
   )
   return (
     <main className="shell">
-      <header className="topbar">
-        <Link className="brand" href="/">
-          <span className="brand-mark">R</span>
-          <span>TMP-RADAR</span>
-        </Link>
-        <div className="top-actions">
-          <Link href="/compare" className="compare-link">
-            Compare
-          </Link>
-          <SyncButton />
-        </div>
-      </header>
+      <SiteHeader />
       <section className="hero">
         <div>
           <p className="eyebrow">
@@ -115,10 +104,9 @@ export default async function Page() {
               <Database size={28} />
               <h2>Your radar is ready.</h2>
               <p>
-                The database does not contain any measurements yet. Run your
-                first sync to import TruckersMP servers.
+                The database does not contain measurements yet. The scheduled
+                server sync will import TruckersMP data automatically.
               </p>
-              <SyncButton />
             </section>
           ) : (
             <section className="table-card">

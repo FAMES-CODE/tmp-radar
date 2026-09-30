@@ -1,3 +1,5 @@
+import { TruckersMpApiError } from "@/lib/truckersmp/client"
+
 const serversUrl = process.env.TRUCKERSMP_SERVERS_URL
 
 export type TruckersMpServer = {
@@ -18,18 +20,15 @@ type ServersPayload = {
   descriptor?: string
 }
 
-export class TruckersMpApiError extends Error {}
-
 export async function fetchTruckersMpServers() {
-  if (!serversUrl) {
-    throw new TruckersMpApiError(
-      "TRUCKERSMP_SERVERS_URL is not configured. Add it to your environment file."
-    )
-  }
   let response: Response
   try {
     response = await fetch(serversUrl, {
       cache: "no-store",
+      headers: {
+        "User-Agent": "TMP-RADAR/3.0 (+https://truckersmp.com)",
+        Accept: "application/json",
+      },
       signal: AbortSignal.timeout(10_000),
     })
   } catch {
