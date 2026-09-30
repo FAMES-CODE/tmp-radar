@@ -4,8 +4,6 @@
 
 TMP-RADAR polls the public [TruckersMP API](https://truckersmp.com/), stores periodic snapshots of every server in PostgreSQL, and turns that history into a clean dashboard where you can see how busy each server is and compare servers against each other over time.
 
-🔗 **Live demo:** TODO_ADD_URL
-
 ---
 
 ## ✨ Features
